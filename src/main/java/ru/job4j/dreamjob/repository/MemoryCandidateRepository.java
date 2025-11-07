@@ -1,9 +1,6 @@
 package ru.job4j.dreamjob.repository;
 
 import ru.job4j.dreamjob.model.Candidate;
-import ru.job4j.dreamjob.model.Vacancy;
-
-import java.time.LocalDate;
 import java.util.*;
 
 public class MemoryCandidateRepository implements CandidateRepository {

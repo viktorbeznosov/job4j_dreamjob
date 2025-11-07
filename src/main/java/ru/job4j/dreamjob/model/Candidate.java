@@ -1,7 +1,7 @@
 package ru.job4j.dreamjob.model;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Candidate {
@@ -11,19 +11,19 @@ public class Candidate {
 
     private String description;
 
-    private Date creationDate;
+    private LocalDateTime creationDate;
 
     public Candidate(int id, String name) {
         this.id = id;
         this.name = name;
-        this.creationDate = new Date();
+        this.creationDate = LocalDateTime.now();
     }
 
     public Candidate(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.creationDate = new Date();
+        this.creationDate = LocalDateTime.now();
     }
 
     public int getId() {
@@ -38,13 +38,13 @@ public class Candidate {
         return description;
     }
 
-    public Date getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
     public String getCreationDateString() {
-        SimpleDateFormat df = new SimpleDateFormat("dd.MM.YYYY");
-        return df.format(creationDate);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.YYYY HH:mm");
+        return creationDate.format(formatter);
     }
 
     public void setId(int id) {
@@ -59,7 +59,7 @@ public class Candidate {
         this.description = description;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
     }
 
