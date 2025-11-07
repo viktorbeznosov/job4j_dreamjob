@@ -42,11 +42,6 @@ public class Candidate {
         return creationDate;
     }
 
-    public String getCreationDateString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.YYYY HH:mm");
-        return creationDate.format(formatter);
-    }
-
     public void setId(int id) {
         this.id = id;
     }
