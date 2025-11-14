@@ -1,6 +1,8 @@
 package ru.job4j.dreamjob.repository;
 
 import ru.job4j.dreamjob.model.Candidate;
+
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class MemoryCandidateRepository implements CandidateRepository {
@@ -27,6 +29,9 @@ public class MemoryCandidateRepository implements CandidateRepository {
     @Override
     public Candidate save(Candidate candidate) {
         candidate.setId(nextId++);
+        if (candidate.getCreationDate() == null) {
+            candidate.setCreationDate(LocalDateTime.now());
+        }
         candidates.put(candidate.getId(), candidate);
         return candidate;
     }

@@ -13,6 +13,9 @@ public class Candidate {
 
     private LocalDateTime creationDate;
 
+    public Candidate() {
+    }
+
     public Candidate(int id, String name) {
         this.id = id;
         this.name = name;
