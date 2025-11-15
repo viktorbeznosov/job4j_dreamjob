@@ -29,9 +29,6 @@ public class MemoryCandidateRepository implements CandidateRepository {
     @Override
     public Candidate save(Candidate candidate) {
         candidate.setId(nextId++);
-        if (candidate.getCreationDate() == null) {
-            candidate.setCreationDate(LocalDateTime.now());
-        }
         candidates.put(candidate.getId(), candidate);
         return candidate;
     }
