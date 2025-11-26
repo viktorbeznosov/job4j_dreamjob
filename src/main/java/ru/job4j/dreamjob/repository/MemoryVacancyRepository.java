@@ -19,12 +19,12 @@ public class MemoryVacancyRepository implements VacancyRepository {
     private final Map<Integer, Vacancy> vacancies = new ConcurrentHashMap<>();
 
     private MemoryVacancyRepository() {
-        save(new Vacancy(0, "Intern Java Developer", "Lorem ipsum dolor sit amend", true, new City(1, "Москва").getId()));
-        save(new Vacancy(0, "Junior Java Developer", "Lorem ipsum dolor sit amend", true, new City(1, "Москва").getId()));
-        save(new Vacancy(0, "Junior+ Java Developer", "Lorem ipsum dolor sit amend", true, new City(1, "Москва").getId()));
-        save(new Vacancy(0, "Middle Java Developer", "Lorem ipsum dolor sit amend", false, new City(2, "Санкт-Петербург").getId()));
-        save(new Vacancy(0, "Middle+ Java Developer", "Lorem ipsum dolor sit amend", false, new City(2, "Санкт-Петербург").getId()));
-        save(new Vacancy(0, "Senior Java Developer", "Lorem ipsum dolor sit amend", false, new City(3, "Екатеринбург").getId()));
+        save(new Vacancy(0, "Intern Java Developer", "Lorem ipsum dolor sit amend", true, new City(1, "Москва").getId(), 0));
+        save(new Vacancy(0, "Junior Java Developer", "Lorem ipsum dolor sit amend", true, new City(1, "Москва").getId(), 0));
+        save(new Vacancy(0, "Junior+ Java Developer", "Lorem ipsum dolor sit amend", true, new City(1, "Москва").getId(), 0));
+        save(new Vacancy(0, "Middle Java Developer", "Lorem ipsum dolor sit amend", false, new City(2, "Санкт-Петербург").getId(), 0));
+        save(new Vacancy(0, "Middle+ Java Developer", "Lorem ipsum dolor sit amend", false, new City(2, "Санкт-Петербург").getId(), 0));
+        save(new Vacancy(0, "Senior Java Developer", "Lorem ipsum dolor sit amend", false, new City(3, "Екатеринбург").getId(), 0));
     }
 
     @Override
@@ -44,7 +44,7 @@ public class MemoryVacancyRepository implements VacancyRepository {
         return vacancies.computeIfPresent(vacancy.getId(), (id, oldVacancy) -> {
             return new Vacancy(
                     oldVacancy.getId(), vacancy.getTitle(), vacancy.getDescription(),
-                    vacancy.getCreationDate(), vacancy.getVisible(), vacancy.getCityId()
+                    vacancy.getCreationDate(), vacancy.getVisible(), vacancy.getCityId(), vacancy.getFileId()
             );
         }) != null;
     }
