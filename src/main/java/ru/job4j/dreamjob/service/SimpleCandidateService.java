@@ -4,8 +4,8 @@ import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Service;
 import ru.job4j.dreamjob.dto.FileDto;
 import ru.job4j.dreamjob.model.Candidate;
-import ru.job4j.dreamjob.model.Vacancy;
 import ru.job4j.dreamjob.repository.MemoryCandidateRepository;
+import ru.job4j.dreamjob.repository.Sql2oCandidateRepository;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -14,15 +14,15 @@ import java.util.Optional;
 @Service
 public class SimpleCandidateService implements CandidateService {
 
-    private final MemoryCandidateRepository candidateRepository;
+    private final Sql2oCandidateRepository candidateRepository;
 
     private final FileService fileService;
 
     public SimpleCandidateService(
-            MemoryCandidateRepository candidateRepository,
+            Sql2oCandidateRepository sql2oCandidateRepository,
             FileService fileService
     ) {
-        this.candidateRepository = candidateRepository;
+        this.candidateRepository = sql2oCandidateRepository;
         this.fileService = fileService;
     }
 
