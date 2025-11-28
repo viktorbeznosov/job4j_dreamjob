@@ -78,7 +78,7 @@
         <profile>
             <id>test</id>
             <properties>
-                <liquibase.config>db/liquibase_test.properties</liquibase.config>
+                <liquibase.config>src/main/resources/db/liquibase_test.properties</liquibase.config>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
