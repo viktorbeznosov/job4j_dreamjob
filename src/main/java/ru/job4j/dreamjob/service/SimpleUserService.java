@@ -7,12 +7,12 @@ import ru.job4j.dreamjob.repository.UserRepository;
 import java.util.Optional;
 
 @Service
-public class SimpleUserService implements UserService{
+public class SimpleUserService implements UserService {
 
     private final UserRepository userRepository;
 
-    public SimpleUserService(UserRepository Sql2oUserRepository) {
-        this.userRepository = Sql2oUserRepository;
+    public SimpleUserService(UserRepository sql2oUserRepository) {
+        this.userRepository = sql2oUserRepository;
     }
 
     @Override
