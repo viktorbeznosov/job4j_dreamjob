@@ -1,6 +1,7 @@
 package ru.job4j.dreamjob.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,6 +42,12 @@ public class UserController {
 
     @GetMapping("/login")
     public String getLoginPage() {
+        return "users/login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.setAttribute("user", null);
         return "users/login";
     }
 
