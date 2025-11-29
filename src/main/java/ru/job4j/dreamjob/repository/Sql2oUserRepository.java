@@ -32,10 +32,10 @@ public class Sql2oUserRepository implements UserRepository {
             int generatedId = query.executeUpdate().getKey(Integer.class);
             user.setId(generatedId);
 
-            return Optional.ofNullable(user);
+            return Optional.of(user);
         } catch (Sql2oException e) {
-            log.error(e.getMessage());
-            return Optional.ofNullable(null);
+            log.error(e.getMessage(), e);
+            return Optional.empty();
         }
     }
 
