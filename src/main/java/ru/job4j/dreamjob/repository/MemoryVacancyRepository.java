@@ -36,9 +36,6 @@ public class MemoryVacancyRepository implements VacancyRepository {
 
     @Override
     public boolean deleteById(int id) {
-        if (findById(id).isEmpty()) {
-            return false;
-        }
         vacancies.remove(id);
 
         return findById(id).isEmpty();
